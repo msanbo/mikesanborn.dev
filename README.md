@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mikesanborn.dev
 
-## Getting Started
+Next.js, statically exported, deployed on Vercel. One route (`/`) plus one
+article route at its own slug — no `[slug]` dynamic segment, no content
+pipeline, just a literal nested folder:
+`app/writing/what-an-ai-agent-gets-wrong-building-a-medusa-storefront/`.
+No CMS, no MDX, no blog index — content lives in `page.tsx` files as plain
+JSX.
 
-First, run the development server:
+## Content status
+
+All real. No placeholder copy remains (`grep -rn PLACEHOLDER app/` returns
+nothing) — hero, the full case-study article, Amber Hour case study,
+pricing tiers, contact, metadata, OG images, and favicon all come from the
+source docs. The article's byline date is hardcoded to August 31, 2026 —
+update it if this ships later.
+
+The homepage's Work section is text-only, no screenshot — the Amber Hour
+catalog image was removed on request; the source screenshot this produced
+(`assets/amberhour-phone-source.jpg`) is still used inside the homepage's
+OG image phone-frame mockup.
+
+## Local dev
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build (static export)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Output goes to `out/`. Preview it with `npx serve out`.
 
-## Learn More
+## Metadata checklist
 
-To learn more about Next.js, take a look at the following resources:
+- `metadataBase` is set in `app/layout.tsx` to `https://mikesanborn.dev` —
+  update this first if the domain ever changes, or every relative OG/canonical
+  URL silently points at the wrong host.
+- Both routes set `alternates.canonical` explicitly (root layout for `/`,
+  the article's own metadata for its slug) — this is the URL that goes in
+  every cross-post's `canonical_url` front matter (dev.to, Hashnode) so
+  SEO accrues here, not there.
+- Title/description are set per-route, not copy-pasted — check both after
+  editing copy.
+- OG images are real graphics, not gradients, and **not shared** between
+  routes: the homepage renders a phone-frame mockup of the Amber Hour
+  catalog screenshot; the article renders its own before/after performance
+  stats (Perf/LCP/TBT) as a graphic, built from the same numbers in
+  section 6. Both live in `lib/og-image.tsx` (`next/og`, reading
+  `assets/amberhour-phone-source.jpg` at build time for the homepage one).
+  Each route needs its **own** `opengraph-image.tsx` file — Next does not
+  inherit a parent segment's file-based OG image once a route defines its
+  own `openGraph`/`twitter` metadata object, so a route with custom
+  metadata and no image file of its own silently ships with no `og:image`
+  at all. Verify with LinkedIn's Post Inspector before sending a single
+  email.
+- Favicon is generated via `app/icon.tsx` (same `next/og` mechanism).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Cross-posting the article
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Publish here first. Wait a few days for it to get indexed, then cross-post
+to dev.to / Hashnode with `canonical_url` (dev.to front matter) or the
+equivalent Hashnode field set to the canonical URL above. Skip Medium.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push to a GitHub repo and import it in Vercel (framework preset: Next.js —
+it auto-detects `output: "export"` and serves the static output).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+After deploying, re-run Lighthouse (mobile) against the live URL as the
+real check — local runs against a dev-machine preview server can read a
+couple points low on LCP due to Lighthouse's simulated-throttling model;
+the production numbers on Vercel's edge are what actually matter.

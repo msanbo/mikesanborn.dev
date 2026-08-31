@@ -1,49 +1,258 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+  --color-muted: #5c5c5c;
+  --color-border: #e6e6e6;
+  --color-accent: #111111;
 
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --max-width: 40rem;
+  --gutter: 1.5rem;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
   margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.375rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.0625rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+.eyebrow {
+  margin: 0 0 0.75em;
+  color: var(--color-muted);
+}
+
+.lede {
+  font-size: 1.125rem;
+  max-width: 38rem;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.container--wide {
+  max-width: 56rem;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.section {
+  padding: 3.5rem 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--color-border);
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.fact-list {
+  margin: 0 0 2rem;
+  padding-left: 1.25rem;
+}
+
+.fact-list li {
+  margin-bottom: 0.6em;
+  max-width: 42rem;
+}
+
+.pricing-card {
+  padding: 1.5rem 0;
+}
+
+.pricing-card + .pricing-card {
+  border-top: 1px solid var(--color-border);
+}
+
+.pricing-card h3 {
+  margin-bottom: 0.4em;
+}
+
+.pricing-card p {
+  max-width: 42rem;
+  margin-bottom: 0;
+}
+
+.screenshot-figure {
+  margin: 0 0 2.5rem;
+}
+
+.screenshot-figure img {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.screenshot-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+footer {
+  padding: 2.5rem 0 3.5rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+article h2 {
+  margin-top: 2em;
+}
+
+article h3 {
+  margin-top: 1.75em;
+}
+
+article p {
+  color: var(--color-fg);
+}
+
+article ul {
+  margin: 0 0 1em;
+  padding-left: 1.25rem;
+}
+
+article li {
+  margin-bottom: 0.5em;
+}
+
+.dek {
+  font-size: 1.125rem;
+  font-weight: 500;
+  max-width: 42rem;
+}
+
+.cite-line {
+  margin-top: 1.5rem;
+}
+
+.table-wrap {
+  position: relative;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border-radius: inherit;
+}
+
+.table-fade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 28px;
+  pointer-events: none;
+  background: linear-gradient(to right, transparent, var(--color-bg));
+  border-radius: 0 8px 8px 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.footnote {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+}
+
+.closing-tagline {
+  font-size: 1.0625rem;
+  margin-top: 2.5rem;
+}
+
+article code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: #f4f4f4;
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
 }
