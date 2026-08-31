@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mikesanborn.dev/sitemap.xml",
+    sitemap: "https://www.mikesanborn.dev/sitemap.xml",
   };
 }

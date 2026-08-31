@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const siteUrl = "https://mikesanborn.dev";
+const siteUrl = "https://www.mikesanborn.dev";
 const siteName = "Mike Sanborn";
 const siteTitle = "Mike Sanborn — Next.js storefronts on Medusa";
 const siteDescription =
