@@ -463,6 +463,7 @@ export default function Writing() {
                 <tr>
                   <th>Round</th>
                   <th>Change</th>
+                  <th>Runs</th>
                   <th>Perf</th>
                   <th>LCP</th>
                   <th>TTI</th>
@@ -474,6 +475,7 @@ export default function Writing() {
                 <tr>
                   <td>Baseline</td>
                   <td>—</td>
+                  <td>—</td>
                   <td>82</td>
                   <td>2.4s</td>
                   <td>5.3s</td>
@@ -483,12 +485,9 @@ export default function Writing() {
                 <tr>
                   <td>1</td>
                   <td>Eager LCP image, trimmed nav payload</td>
-                  <td>
-                    98<sup>1</sup>
-                  </td>
-                  <td>
-                    1.3s<sup>1</sup>
-                  </td>
+                  <td>1</td>
+                  <td>98</td>
+                  <td>1.3s</td>
                   <td>5.2s</td>
                   <td>156ms</td>
                   <td>387 KiB</td>
@@ -496,12 +495,9 @@ export default function Writing() {
                 <tr>
                   <td>2</td>
                   <td>Removed GA4</td>
-                  <td>
-                    96<sup>1</sup>
-                  </td>
-                  <td>
-                    2.6s<sup>1</sup>
-                  </td>
+                  <td>1</td>
+                  <td>96</td>
+                  <td>2.6s</td>
                   <td>3.1s</td>
                   <td>137ms</td>
                   <td>215 KiB</td>
@@ -509,12 +505,9 @@ export default function Writing() {
                 <tr>
                   <td>4</td>
                   <td>CDN domain, priority on first row</td>
-                  <td>
-                    95<sup>2</sup>
-                  </td>
-                  <td>
-                    2.4s<sup>2</sup>
-                  </td>
+                  <td>5</td>
+                  <td>95</td>
+                  <td>2.4s</td>
                   <td>3.2s</td>
                   <td>192ms</td>
                   <td>215 KiB</td>
@@ -522,15 +515,12 @@ export default function Writing() {
                 <tr>
                   <td>5</td>
                   <td>PNG → WebP, 95% smaller</td>
+                  <td>5</td>
                   <td>
-                    <strong>
-                      95<sup>2</sup>
-                    </strong>
+                    <strong>95</strong>
                   </td>
                   <td>
-                    <strong>
-                      1.9s<sup>2</sup>
-                    </strong>
+                    <strong>1.9s</strong>
                   </td>
                   <td>
                     <strong>3.1s</strong>
@@ -547,9 +537,6 @@ export default function Writing() {
             </div>
             <div className="table-fade" aria-hidden="true" />
           </div>
-          <p className="footnote">
-            <sup>1</sup> single run · <sup>2</sup> five-run median
-          </p>
 
           <p>
             <strong>Final, /us/store, mobile:</strong> performance 95

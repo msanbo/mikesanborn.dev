@@ -238,12 +238,6 @@ tr:last-child td {
   border-bottom: none;
 }
 
-.footnote {
-  font-size: 0.8125rem;
-  color: var(--color-muted);
-  margin-top: -0.5rem;
-}
-
 .closing-tagline {
   font-size: 1.0625rem;
   margin-top: 2.5rem;
