@@ -119,9 +119,9 @@ export default function Home() {
               </p>
               <Image
                 src="/amberhour-catalog.webp"
-                alt="Amber Hour Coffee Co. catalog page on mobile, scoring 95 on Lighthouse performance"
-                width={160}
-                height={268}
+                alt="Amber Hour Coffee Co. store page, showing the header, hero banner, and All products grid"
+                width={320}
+                height={440}
               />
             </div>
 
