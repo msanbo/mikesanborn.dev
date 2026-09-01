@@ -190,20 +190,50 @@ export default function Writing() {
           </p>
           <p>Defaults are invisible precisely because they work.</p>
 
-          <h3>4.4 Data-model shortcuts that cost you later</h3>
+          <h3>4.4 Values that are correct at demo scale</h3>
           <p>
-            Roast level and process went into <code>product.metadata</code>.
-            It works, it renders, and it quietly makes faceted filtering
-            impossible, because metadata isn&rsquo;t queryable as a filter.
-            The store page has sort — newest, price ascending, price
-            descending — but can&rsquo;t filter by roast level without a
-            data migration. Tags would have cost nothing up front.
+            The store page filters by category, roast and process, grind,
+            and bag size. These are real facets. Roast and process are
+            Medusa product tags — first-class <code>product_tag</code> rows,
+            not metadata — and clicking one triggers a server-side re-render
+            that issues a genuine <code>GET /store/products?tag_id=…</code>{" "}
+            against the backend. No client-side array filtering.
           </p>
           <p>
-            The agent solved the stated problem — display these attributes
-            — without modeling for the obvious next requirement.
-            That&rsquo;s judgment, and judgment is what you&rsquo;re
-            supposed to be supplying.
+            Inside <code>listProductsWithSort</code>, though:
+          </p>
+          <pre>
+            <code>{`const { response: { products } } = await listProducts({
+  queryParams: { ...queryParams, limit: 100 },
+})
+const filteredCount = products.length`}</code>
+          </pre>
+          <p>
+            Two decisions there, both invisible at this catalog size. The
+            query asks for 100 products regardless of the page size
+            actually requested. And the total driving pagination is{" "}
+            <code>products.length</code> — the size of that capped response
+            — rather than the count Medusa&rsquo;s API returns in the same
+            payload.
+          </p>
+          <p>
+            At eight products those two numbers are identical. Pagination is
+            correct. Every filter combination behaves. Nothing to see.
+          </p>
+          <p>
+            Past 100 matches, the 101st product onward is silently
+            unreachable and the UI reports no next page. Not because
+            pagination broke, but because the code never asked how many
+            products matched. It asked how many came back in the first
+            hundred and treated that as the answer.
+          </p>
+          <p>
+            The shape of it: an authoritative value was available — the API
+            returned the real count — and the agent substituted a locally
+            derived proxy that agrees with it at small N. Nothing throws.
+            Nothing looks wrong. The defect sits latent in the arithmetic,
+            waiting for a catalog large enough to expose it, and the catalog
+            you test against is the one that never will.
           </p>
 
           <h3>4.5 Output that is correct by accident</h3>
@@ -293,7 +323,10 @@ export default function Writing() {
             entries. The multi-region failure mode is that prices seed for
             the default currency and silently not the others: the US store
             works perfectly, the EU store renders empty prices, and you find
-            out when a customer switches regions.
+            out when a customer switches regions. The same instinct that
+            catches missing EUR prices catches this: ask the system for the
+            number rather than inferring it from what you happen to have in
+            hand.
           </p>
           <p>
             <strong>Inspect the artifact, not its description.</strong>{" "}
@@ -548,10 +581,12 @@ export default function Writing() {
 
           <h2>7. What I&rsquo;d do differently</h2>
           <p>
-            Model roast level and process as tags from the start. The
-            metadata shortcut works until someone asks for filtering, and
-            in a category where people shop by roast profile, that day
-            comes quickly.
+            Never substitute a derived value for an authoritative one. The
+            API returned the count; the code computed its own from the
+            response length. They agreed, so the substitution was
+            invisible. Anything an upstream system tells you authoritatively
+            should be used rather than recomputed, especially when your
+            test data is too small for the two to disagree.
           </p>
           <p>
             Set option and variant ranks in the seed script rather than
