@@ -15,10 +15,15 @@ pricing tiers, contact, metadata, OG images, and favicon all come from the
 source docs. The article's byline date is hardcoded to August 31, 2026 —
 update it if this ships later.
 
-The homepage's Work section is text-only, no screenshot — the Amber Hour
-catalog image was removed on request; the source screenshot this produced
-(`assets/amberhour-phone-source.jpg`) is still used inside the homepage's
-OG image phone-frame mockup.
+The homepage's Work section carries one screenshot — the Amber Hour
+catalog page on mobile, next to the Lighthouse numbers it backs up. It's
+`public/amberhour-catalog.webp`, a pre-sized (320×537, ~2x for a 160px
+display width) WebP derived from `assets/amberhour-phone-source.jpg`,
+which is also still used inside the homepage's OG image phone-frame
+mockup. Regenerate it with `sips`/`cwebp` if the source screenshot ever
+changes — see the git history on this file for the exact commands. No
+other image appears on the homepage or in the article; the article's
+arc/results table is its own visual and doesn't need one.
 
 ## Local dev
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const ARTICLE_PATH =
@@ -108,13 +109,21 @@ export default function Home() {
               </li>
             </ul>
 
-            <p>
-              <strong>
-                Catalog page, mobile: 95 Lighthouse performance
-              </strong>{" "}
-              — median of five runs, range 90–98, up from 82. LCP 1.9s,
-              CLS 0, accessibility 100.
-            </p>
+            <div className="work-evidence">
+              <p>
+                <strong>
+                  Catalog page, mobile: 95 Lighthouse performance
+                </strong>{" "}
+                — median of five runs, range 90–98, up from 82. LCP 1.9s,
+                CLS 0, accessibility 100.
+              </p>
+              <Image
+                src="/amberhour-catalog.webp"
+                alt="Amber Hour Coffee Co. catalog page on mobile, scoring 95 on Lighthouse performance"
+                width={160}
+                height={268}
+              />
+            </div>
 
             <p className="mono" style={{ fontSize: "0.875rem" }}>
               <a className="link" href="https://www.amberhour.coffee">
