@@ -36,13 +36,12 @@ export default function Home() {
             <h1>I build Next.js storefronts on Medusa.</h1>
             <p className="lede">
               The frontend layer specifically: multi-region routing,
-              variant-heavy catalogs, checkout, and performance. I work
-              white-label under agency brands, and directly with brands
-              running their own headless build.
+              variant-heavy catalogs, checkout, and performance.
             </p>
             <a className="link mono" href="mailto:mike@mikesanborn.dev">
               mike@mikesanborn.dev
             </a>
+            <p className="mono muted">Currently booking from 9/25/26</p>
           </div>
         </section>
 
@@ -138,14 +137,14 @@ export default function Home() {
             <h2>Working together</h2>
 
             <div className="pricing-card">
-              <h3>Storefront Sprint — $6,500, two weeks</h3>
+              <h3>Storefront Sprint — $6,500, four weeks</h3>
               <p>
                 You have Medusa running and a storefront that still looks
                 like the starter. I take it to branded and
                 production-ready: design system, product and collection
                 pages, cart and checkout, responsive and performance
-                passes, deploy. Fixed scope, fixed date, one round of
-                revisions.
+                passes, deploy. Fixed scope, fixed delivery date, one
+                round of revisions.
               </p>
             </div>
 
@@ -155,37 +154,37 @@ export default function Home() {
                 Ground-up storefront. Custom design implementation,
                 multi-region and multi-currency, i18n, search and
                 filtering, accounts and order history, custom checkout,
-                CMS integration, analytics, handoff documentation. Five to
-                eight weeks depending on regions and integrations.
+                CMS integration, analytics, handoff documentation. Ten to
+                fourteen weeks depending on regions and integrations.
               </p>
             </div>
 
             <div className="pricing-card">
-              <h3>Agency Subcontract — $4,500/week</h3>
-              <p>
-                White-label, under your brand, invoiced weekly. You keep
-                the client relationship. Useful when you&apos;ve sold a
-                headless build and need a commerce frontend person
-                who&apos;s shipped one.
-              </p>
-            </div>
-
-            <div className="pricing-card">
-              <h3>Storefront Audit — $1,500, three days</h3>
+              <h3>Storefront Audit — $1,500, one week</h3>
               <p>
                 A written teardown of an existing headless storefront:
-                performance against measured Core Web Vitals, checkout
-                friction, cart and session handling, SEO and metadata,
-                mobile, accessibility. Ends with a prioritized fix list.
-                Credited in full toward any build booked within 30 days.
+                performance against measured Core Web Vitals across five
+                runs, checkout friction, cart and session handling, SEO
+                and metadata, mobile, accessibility. Ends with a
+                prioritized fix list. Credited in full toward any build
+                booked within 30 days.
               </p>
             </div>
+
+            <h3>How I work</h3>
+            <p>
+              I build storefronts alongside a full-time role, which means
+              fixed scope and a committed delivery date rather than daily
+              availability. I reply to email within 24 hours and I
+              don&apos;t miss dates. If you need someone in your
+              standups, I&apos;m not your person — and I&apos;ll tell you
+              that on the first call rather than the third week.
+            </p>
 
             <p className="muted">
               <strong>Not a fit for:</strong> backend Medusa architecture,
-              or a small Shopify store that would be worse off
-              replatformed. I&apos;ll tell you if that&apos;s what
-              you&apos;ve got.
+              emergency rescues with a launch date inside two weeks, or a
+              small Shopify store that would be worse off replatformed.
             </p>
           </div>
         </section>
