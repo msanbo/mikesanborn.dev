@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude Code project files (kept locally, not tracked)
+AGENTS.md
+CLAUDE.md
