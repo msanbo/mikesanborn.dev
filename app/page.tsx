@@ -209,13 +209,6 @@ export default function Home() {
           <p className="mono">
             <a
               className="link"
-              href="https://github.com/msanbo/coffee-demo-store"
-            >
-              GitHub
-            </a>{" "}
-            ·{" "}
-            <a
-              className="link"
               href="https://www.linkedin.com/in/michael-sanborn-759834b/"
             >
               LinkedIn

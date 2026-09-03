@@ -18,7 +18,7 @@ const siteUrl = "https://www.mikesanborn.dev";
 const siteName = "Mike Sanborn";
 const siteTitle = "Mike Sanborn — Next.js storefronts on Medusa";
 const siteDescription =
-  "Frontend developer building production Next.js storefronts on Medusa. Multi-region, variant-heavy catalogs, checkout, performance. Available for agency subcontract and direct builds.";
+  "Frontend developer building production Next.js storefronts on Medusa. Multi-region, variant-heavy catalogs, checkout, performance. Available for fixed-scope builds and audits.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
