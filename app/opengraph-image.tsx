@@ -7,7 +7,10 @@ export const dynamic = "force-static";
 
 export default function Image() {
   return new ImageResponse(
-    ogImageJsx("I build and run small software products."),
+    ogImageJsx(
+      "I build JobsiteHQ.",
+      "The punch list and invoicing app for contractors."
+    ),
     { ...size }
   );
 }

@@ -1,8 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const ARTICLE_PATH =
   "/writing/what-an-ai-agent-gets-wrong-building-a-medusa-storefront";
+
+const TRIAL_URL =
+  "https://jobsitehq.app/?utm_source=mikesanborn.dev&utm_medium=referral";
 
 export default function Home() {
   return (
@@ -18,9 +20,9 @@ export default function Home() {
           >
             <span className="mono">Mike Sanborn</span>
             <span style={{ display: "flex", gap: "1.5rem" }}>
-              <Link className="link" href={ARTICLE_PATH}>
-                Writing
-              </Link>
+              <a className="link" href={TRIAL_URL}>
+                JobsiteHQ
+              </a>
               <a className="link" href="mailto:mike@mikesanborn.dev">
                 Contact
               </a>
@@ -33,153 +35,123 @@ export default function Home() {
         {/* HERO */}
         <section className="section">
           <div className="container container--wide">
-            <p className="eyebrow mono">Mike Sanborn</p>
-            <h1>I build and run small software products.</h1>
+            <p className="eyebrow mono">Mike Sanborn · Builder of JobsiteHQ</p>
+            <h1>I build JobsiteHQ.</h1>
             <p className="lede">
-              Focused apps for people who work with their hands, not at a
-              desk.
+              A punch list and invoicing app for handymen and small-crew
+              contractors. I design it, write every line of it, and answer
+              the support email myself.
             </p>
-            <a className="link mono" href="#products">
-              See what I&apos;ve built ↓
-            </a>
+            <p>
+              <a className="button" href={TRIAL_URL}>
+                Try JobsiteHQ free
+              </a>
+            </p>
+            <p className="mono muted">14 days free. No card.</p>
           </div>
         </section>
 
-        {/* PRODUCTS */}
-        <section className="section" id="products">
+        {/* WHAT IT DOES */}
+        <section className="section">
           <div className="container container--wide">
-            <p className="eyebrow mono">Product · Live</p>
-            <h2>JobsiteHQ</h2>
+            <p className="eyebrow mono">What it does</p>
+            <h2>Talk through the job. Get the punch list.</h2>
             <p>
-              A punch list and invoicing app for handymen and small-crew
-              contractors. Walk the job and talk through what needs doing.
-              JobsiteHQ turns the recording into a punch list, an estimate,
-              and an invoice the client pays through Stripe.
+              Walk the site and say what needs doing. JobsiteHQ writes the
+              punch list, the estimate, and the invoice while you&apos;re
+              still standing there, and your client pays it by card
+              straight from the link.
             </p>
             <ul className="fact-list">
               <li>
-                Installs from the browser, no app store. Works with no
-                signal on site and syncs when it&apos;s back
+                Runs on your phone. No app store, no laptop, no paperwork
+                night
               </li>
               <li>
-                Audio is saved every second, so a locked phone or a crash
-                doesn&apos;t lose a walkthrough
+                Estimates turn into invoices when the client approves, with
+                your markup on materials
               </li>
               <li>
-                Speech to transcript (Deepgram Nova-3) to punch list
-                (Claude), reviewed by the contractor before anything is
-                saved
+                Card payments go straight to your bank through Stripe at
+                their standard rate. Nothing added on top
               </li>
               <li>
-                Stripe Connect payment links, so money goes straight to the
-                contractor. Itemized invoices, materials markup, and
-                progress payments
-              </li>
-              <li>
-                $24.99/mo or $199/yr, with a 14-day trial and no card
-                required
+                $24.99 a month or $199 a year. Unlimited jobs, no per-job
+                fees, no setup call
               </li>
             </ul>
-            <p className="mono muted" style={{ fontSize: "0.875rem" }}>
-              Next.js · Supabase · Stripe Connect · IndexedDB · service
-              worker
-            </p>
-            <p className="mono" style={{ fontSize: "0.875rem" }}>
-              <a className="link" href="https://jobsitehq.app">
-                jobsitehq.app →
-              </a>
-            </p>
           </div>
         </section>
 
-        {/* WRITING */}
+        {/* HOW IT'S BUILT */}
         <section className="section">
           <div className="container container--wide">
-            <p className="eyebrow mono">Writing</p>
-            <h2>What an AI agent gets wrong building a Medusa storefront</h2>
+            <p className="eyebrow mono">How it&apos;s built</p>
+            <h2>Built for basements, ladders, and dead zones</h2>
             <p>
-              I built a production storefront with an AI agent doing the
-              implementation and me directing and reviewing it. The speed
-              wasn&apos;t the interesting part. The interesting part was that
-              the agent produced the same nine categories of defect every
-              time — configuration that only works locally, silent omissions
-              inside things that look complete, data-model shortcuts that
-              block a feature three weeks later, image files whose
-              extensions lied about their format.
+              Most job apps are built for the office and squeezed onto a
+              phone. I built JobsiteHQ the other way around, for the places
+              you actually work.
             </p>
-            <p>
-              It also handed me a 95 Lighthouse score on the easy route
-              while the page customers actually browse sat at 82, and a
-              1.3s LCP that turned out to be the best of five samples.
-            </p>
-            <p>
-              Most teams are building this way now, whether or not
-              it&apos;s in the process doc. The review layer is where the
-              risk sits, and almost nobody is writing about it concretely.
-            </p>
-            <Link className="link" href={ARTICLE_PATH}>
-              Read it →
-            </Link>
+            <ul className="fact-list">
+              <li>
+                <strong>No signal, no problem.</strong> Jobs, photos,
+                receipts, and recordings save on the phone first and sync
+                the moment you have bars again
+              </li>
+              <li>
+                <strong>Your walkthrough can&apos;t get lost.</strong> The
+                recording is saved every second, so a locked screen or a
+                crash doesn&apos;t cost you the job
+              </li>
+              <li>
+                <strong>You stay in charge.</strong> The punch list is
+                written from what you said, and nothing is saved until
+                you&apos;ve checked it over
+              </li>
+              <li>
+                <strong>Your money never passes through me.</strong>{" "}
+                Payments run on Stripe and land in your own bank account
+              </li>
+              <li>
+                <strong>Your records are backed up every night.</strong>
+              </li>
+            </ul>
           </div>
         </section>
 
-        {/* EARLIER WORK */}
+        {/* WHO BUILDS IT */}
         <section className="section">
           <div className="container container--wide">
-            <p className="eyebrow mono">Earlier work</p>
-            <h2>Amber Hour Coffee Co.</h2>
+            <p className="eyebrow mono">Who builds it</p>
+            <h2>A developer, not a call center</h2>
             <p>
-              A production Medusa storefront for a specialty roaster
-              selling into the US and the EU: two regions, six
-              country-routed storefronts, and nine buyable variants per
-              product, each with its own SKU and shipping weight.
-            </p>
-
-            <div className="work-evidence">
-              <p>
-                <strong>
-                  Catalog page, mobile: 95 Lighthouse performance
-                </strong>{" "}
-                — median of five runs, range 90–98, up from 82. LCP 1.9s,
-                CLS 0, accessibility 100.
-              </p>
-              <Image
-                src="/amberhour-catalog.webp"
-                alt="Amber Hour Coffee Co. store page, showing the header, hero banner, and All products grid"
-                width={320}
-                height={440}
-              />
-            </div>
-
-            <p className="mono" style={{ fontSize: "0.875rem" }}>
+              I&apos;m a software developer in Wisconsin. Before JobsiteHQ I
+              built production web stores like{" "}
               <a className="link" href="https://www.amberhour.coffee">
-                View the store →
-              </a>{" "}
-              ·{" "}
-              <a
-                className="link"
-                href="https://github.com/msanbo/coffee-demo-store"
-              >
-                Read the code →
+                Amber Hour Coffee Co.
+              </a>
+              , which sells into the US and the EU from one codebase and
+              scores in the 90s on Google&apos;s mobile speed test.
+            </p>
+            <p>
+              I hold my work to a measured standard, and I write about it:{" "}
+              <Link className="link" href={ARTICLE_PATH}>
+                What an AI agent gets wrong building a Medusa storefront
+              </Link>{" "}
+              is about checking every claim instead of trusting the first
+              good number.
+            </p>
+            <p>
+              If something in JobsiteHQ doesn&apos;t work the way you need,
+              email me. You&apos;ll reach the person who can fix it.
+            </p>
+            <p>
+              <a className="button" href={TRIAL_URL}>
+                Try JobsiteHQ free
               </a>
             </p>
-          </div>
-        </section>
-
-        {/* HOW I BUILD */}
-        <section className="section">
-          <div className="container container--wide">
-            <h2>How I build</h2>
-            <p>
-              Every product is built to run itself: automated onboarding,
-              billing handled by Stripe&apos;s customer portal, and
-              scheduled backups. If something needs me every day, I
-              haven&apos;t finished building it.
-            </p>
-            <p>
-              I design, build, launch, and market each one myself — from
-              the database and the billing to the landing page.
-            </p>
+            <p className="mono muted">14 days free. No card.</p>
           </div>
         </section>
       </main>
@@ -192,26 +164,17 @@ export default function Home() {
             </a>
           </p>
           <p className="mono">
+            <a className="link" href={TRIAL_URL}>
+              jobsitehq.app
+            </a>
+          </p>
+          <p className="mono">
             <a
               className="link"
               href="https://www.linkedin.com/in/michael-sanborn-759834b/"
             >
               LinkedIn
             </a>
-          </p>
-          <p className="mono">
-            <a className="link" href="https://github.com/msanbo">
-              GitHub
-            </a>
-          </p>
-          <p>Building in public from Wisconsin.</p>
-          <p className="muted">
-            I still take a small number of Next.js storefront builds and
-            audits.{" "}
-            <a className="link" href="mailto:mike@mikesanborn.dev">
-              Email me
-            </a>
-            .
           </p>
         </div>
       </footer>

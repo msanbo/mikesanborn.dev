@@ -110,6 +110,20 @@ img {
   text-underline-offset: 0.2em;
 }
 
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  border-radius: 0.75rem;
+  background: #c2410c;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #9a3412;
+}
+
 .fact-list {
   margin: 0 0 2rem;
   padding-left: 1.25rem;

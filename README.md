@@ -9,25 +9,16 @@ JSX.
 
 ## Content status
 
-All real. No placeholder copy remains (`grep -rn PLACEHOLDER app/` returns
-nothing) — hero, the full case-study article, Amber Hour case study,
-pricing tiers, contact, metadata, OG images, and favicon all come from the
-source docs. The article's byline date is hardcoded to August 31, 2026 —
-update it if this ships later.
+The homepage is a founder page for JobsiteHQ: hero, what the app does,
+how it's built, who builds it, with trial CTAs linking to
+`https://jobsitehq.app/?utm_source=mikesanborn.dev&utm_medium=referral`.
+Amber Hour and the article appear only as credibility links in the "Who
+builds it" section. The article page itself is unchanged and stays live at
+its slug. The article's byline date is hardcoded to August 31, 2026.
 
-The homepage's Work section carries one screenshot — a real capture of
-the Amber Hour store page (header, hero, breadcrumb, filters, and the
-product grid), stacked below the Lighthouse numbers it backs up. It's
-`public/amberhour-catalog.webp`, a pre-sized (640×881, ~2x for a 320px
-display width) WebP derived from `assets/amberhour-store-source.png` —
-a full-page browser screenshot with the browser/devtools chrome cropped
-off the bottom edge. Regenerate with `sips`/`cwebp` (crop artifacts out
-first, resize to 640 wide, `cwebp -q 82`) if the source screenshot ever
-changes. This is separate from `assets/amberhour-phone-source.jpg`,
-which is still used inside the homepage's OG image phone-frame mockup —
-don't confuse the two. No other image appears on the homepage or in the
-article; the article's arc/results table is its own visual and doesn't
-need one.
+`public/amberhour-catalog.webp` and `assets/amberhour-*` are no longer used
+by the homepage; they're kept in case the article or a future page needs
+them.
 
 ## Local dev
 
@@ -55,11 +46,9 @@ Output goes to `out/`. Preview it with `npx serve out`.
 - Title/description are set per-route, not copy-pasted — check both after
   editing copy.
 - OG images are real graphics, not gradients, and **not shared** between
-  routes: the homepage renders a phone-frame mockup of the Amber Hour
-  catalog screenshot; the article renders its own before/after performance
+  routes: the homepage renders a text card pointing to jobsitehq.app; the article renders its own before/after performance
   stats (Perf/LCP/TBT) as a graphic, built from the same numbers in
-  section 6. Both live in `lib/og-image.tsx` (`next/og`, reading
-  `assets/amberhour-phone-source.jpg` at build time for the homepage one).
+  section 6. Both live in `lib/og-image.tsx` (`next/og`).
   Each route needs its **own** `opengraph-image.tsx` file — Next does not
   inherit a parent segment's file-based OG image once a route defines its
   own `openGraph`/`twitter` metadata object, so a route with custom
