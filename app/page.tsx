@@ -34,21 +34,69 @@ export default function Home() {
         <section className="section">
           <div className="container container--wide">
             <p className="eyebrow mono">Mike Sanborn</p>
-            <h1>I build Next.js storefronts on Medusa.</h1>
+            <h1>I build and run small software products.</h1>
             <p className="lede">
-              The frontend layer specifically: multi-region routing,
-              variant-heavy catalogs, checkout, and performance.
+              Focused apps for people who work with their hands, not at a
+              desk. I build them alongside a full-time role, so everything
+              I ship has to run without me.
             </p>
-            <a className="link mono" href="mailto:mike@mikesanborn.dev">
-              mike@mikesanborn.dev
+            <a className="link mono" href="#products">
+              See what I&apos;ve built ↓
             </a>
-            <p className="mono muted">Currently booking from 9/25/26</p>
           </div>
         </section>
 
-        {/* WRITING — deliberately first, ahead of the demo */}
+        {/* PRODUCTS */}
+        <section className="section" id="products">
+          <div className="container container--wide">
+            <p className="eyebrow mono">Product · Live</p>
+            <h2>JobsiteHQ</h2>
+            <p>
+              A punch list and invoicing app for handymen and small-crew
+              contractors. Walk the job and talk through what needs doing.
+              JobsiteHQ turns the recording into a punch list, an estimate,
+              and an invoice the client pays through Stripe.
+            </p>
+            <ul className="fact-list">
+              <li>
+                Installs from the browser, no app store. Works with no
+                signal on site and syncs when it&apos;s back
+              </li>
+              <li>
+                Audio is saved every second, so a locked phone or a crash
+                doesn&apos;t lose a walkthrough
+              </li>
+              <li>
+                Speech to transcript (Deepgram Nova-3) to punch list
+                (Claude), reviewed by the contractor before anything is
+                saved
+              </li>
+              <li>
+                Stripe Connect payment links, so money goes straight to the
+                contractor. Itemized invoices, materials markup, and
+                progress payments
+              </li>
+              <li>
+                $24.99/mo or $199/yr, with a 14-day trial and no card
+                required
+              </li>
+            </ul>
+            <p className="mono muted" style={{ fontSize: "0.875rem" }}>
+              Next.js · Supabase · Stripe Connect · IndexedDB · service
+              worker
+            </p>
+            <p className="mono" style={{ fontSize: "0.875rem" }}>
+              <a className="link" href="https://jobsitehq.app">
+                jobsitehq.app →
+              </a>
+            </p>
+          </div>
+        </section>
+
+        {/* WRITING */}
         <section className="section">
           <div className="container container--wide">
+            <p className="eyebrow mono">Writing</p>
             <h2>What an AI agent gets wrong building a Medusa storefront</h2>
             <p>
               I built a production storefront with an AI agent doing the
@@ -76,38 +124,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* WORK */}
+        {/* EARLIER WORK */}
         <section className="section">
           <div className="container container--wide">
+            <p className="eyebrow mono">Earlier work</p>
             <h2>Amber Hour Coffee Co.</h2>
             <p>
-              A production storefront for a specialty roaster selling into
-              the US and the EU. Built to a real spec rather than a
-              sample-data one.
+              A production Medusa storefront for a specialty roaster
+              selling into the US and the EU: two regions, six
+              country-routed storefronts, and nine buyable variants per
+              product, each with its own SKU and shipping weight.
             </p>
-            <ul className="fact-list">
-              <li>
-                Two regions and two currencies across six country-routed
-                storefronts, with region-aware pricing throughout
-              </li>
-              <li>
-                Nine buyable variants per product — three grinds by three
-                bag sizes — each with its own SKU and shipping weight
-              </li>
-              <li>
-                Volume pricing that ladders by bag size, a category
-                taxonomy, and per-product origin, process, altitude, and
-                roast data
-              </li>
-              <li>
-                Images on Cloudflare R2 behind a bound custom domain, WebP,
-                through responsive next/image
-              </li>
-              <li>
-                App Router with server-first rendering, deliberate client
-                boundaries, and Suspense on secondary queries
-              </li>
-            </ul>
 
             <div className="work-evidence">
               <p>
@@ -140,60 +167,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* WORKING TOGETHER */}
+        {/* HOW I BUILD */}
         <section className="section">
           <div className="container container--wide">
-            <h2>Working together</h2>
-
-            <div className="pricing-card">
-              <h3>Storefront Sprint — $6,500, four weeks</h3>
-              <p>
-                You have Medusa running and a storefront that still looks
-                like the starter. I take it to branded and
-                production-ready: design system, product and collection
-                pages, cart and checkout, responsive and performance
-                passes, deploy. Fixed scope, fixed delivery date, one
-                round of revisions.
-              </p>
-            </div>
-
-            <div className="pricing-card">
-              <h3>Full Storefront Build — from $18,000</h3>
-              <p>
-                Ground-up storefront. Custom design implementation,
-                multi-region and multi-currency, i18n, search and
-                filtering, accounts and order history, custom checkout,
-                CMS integration, analytics, handoff documentation. Ten to
-                fourteen weeks depending on regions and integrations.
-              </p>
-            </div>
-
-            <div className="pricing-card">
-              <h3>Storefront Audit — $1,500, one week</h3>
-              <p>
-                A written teardown of an existing headless storefront:
-                performance against measured Core Web Vitals across five
-                runs, checkout friction, cart and session handling, SEO
-                and metadata, mobile, accessibility. Ends with a
-                prioritized fix list. Credited in full toward any build
-                booked within 30 days.
-              </p>
-            </div>
-
-            <h3>How I work</h3>
+            <h2>How I build</h2>
             <p>
-              I build storefronts alongside a full-time role, which means
-              fixed scope and a committed delivery date rather than daily
-              availability. I reply to email within 24 hours and I
-              don&apos;t miss dates. If you need someone in your
-              standups, I&apos;m not your person — and I&apos;ll tell you
-              that on the first call rather than the third week.
+              I build alongside a full-time role, so every product has to
+              run itself: automated onboarding, billing handled by
+              Stripe&apos;s customer portal, scheduled backups, and usage
+              limits that keep the margins positive. If something needs me
+              every day, I haven&apos;t finished building it.
             </p>
-
-            <p className="muted">
-              <strong>Not a fit for:</strong> backend Medusa architecture,
-              emergency rescues with a launch date inside two weeks, or a
-              small Shopify store that would be worse off replatformed.
+            <p>
+              I design, build, launch, and market each one myself — from
+              the database and the billing to the landing page.
             </p>
           </div>
         </section>
@@ -214,9 +201,19 @@ export default function Home() {
               LinkedIn
             </a>
           </p>
-          <p>
-            Based in Wisconsin, working with teams anywhere in US and
-            European time zones.
+          <p className="mono">
+            <a className="link" href="https://github.com/msanbo">
+              GitHub
+            </a>
+          </p>
+          <p>Building in public from Wisconsin.</p>
+          <p className="muted">
+            I still take a small number of Next.js storefront builds and
+            audits.{" "}
+            <a className="link" href="mailto:mike@mikesanborn.dev">
+              Email me
+            </a>
+            .
           </p>
         </div>
       </footer>

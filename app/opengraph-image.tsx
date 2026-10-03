@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 
 export default function Image() {
   return new ImageResponse(
-    ogImageJsx("I build Next.js storefronts on Medusa."),
+    ogImageJsx("I build and run small software products."),
     { ...size }
   );
 }
