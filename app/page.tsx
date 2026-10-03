@@ -37,8 +37,7 @@ export default function Home() {
             <h1>I build and run small software products.</h1>
             <p className="lede">
               Focused apps for people who work with their hands, not at a
-              desk. I build them alongside a full-time role, so everything
-              I ship has to run without me.
+              desk.
             </p>
             <a className="link mono" href="#products">
               See what I&apos;ve built ↓
@@ -172,11 +171,10 @@ export default function Home() {
           <div className="container container--wide">
             <h2>How I build</h2>
             <p>
-              I build alongside a full-time role, so every product has to
-              run itself: automated onboarding, billing handled by
-              Stripe&apos;s customer portal, scheduled backups, and usage
-              limits that keep the margins positive. If something needs me
-              every day, I haven&apos;t finished building it.
+              Every product is built to run itself: automated onboarding,
+              billing handled by Stripe&apos;s customer portal, and
+              scheduled backups. If something needs me every day, I
+              haven&apos;t finished building it.
             </p>
             <p>
               I design, build, launch, and market each one myself — from
