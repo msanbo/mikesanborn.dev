@@ -9,12 +9,10 @@ JSX.
 
 ## Content status
 
-The homepage is a founder page for JobsiteHQ: hero, what the app does,
-how it's built, who builds it, with trial CTAs linking to
+The homepage is a personal trust page: hero, how I work, what I've built
+(JobsiteHQ and Amber Hour), and the article. JobsiteHQ links use
 `https://jobsitehq.app/?utm_source=mikesanborn.dev&utm_medium=referral`.
-Amber Hour and the article appear only as credibility links in the "Who
-builds it" section. The article page itself is unchanged and stays live at
-its slug. The article's byline date is hardcoded to August 31, 2026.
+The article's byline date is hardcoded to August 31, 2026.
 
 `public/amberhour-catalog.webp` and `assets/amberhour-*` are no longer used
 by the homepage; they're kept in case the article or a future page needs
@@ -46,7 +44,7 @@ Output goes to `out/`. Preview it with `npx serve out`.
 - Title/description are set per-route, not copy-pasted — check both after
   editing copy.
 - OG images are real graphics, not gradients, and **not shared** between
-  routes: the homepage renders a text card pointing to jobsitehq.app; the article renders its own before/after performance
+  routes: the homepage renders a text card with the tagline and domain; the article renders its own before/after performance
   stats (Perf/LCP/TBT) as a graphic, built from the same numbers in
   section 6. Both live in `lib/og-image.tsx` (`next/og`).
   Each route needs its **own** `opengraph-image.tsx` file — Next does not

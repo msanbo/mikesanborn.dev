@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 const siteUrl = "https://www.mikesanborn.dev";
 const siteName = "Mike Sanborn";
-const siteTitle = "Mike Sanborn — builder of JobsiteHQ";
+const siteTitle = "Mike Sanborn — software developer, builder of JobsiteHQ";
 const siteDescription =
-  "I build JobsiteHQ, the punch list and invoicing app for handymen and small-crew contractors. Talk through the job, get the punch list, and get paid by card. 14 days free, no card.";
+  "Software developer in Wisconsin building JobsiteHQ, a punch list and invoicing app for contractors. How I work, what I've built, and how to reach me.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

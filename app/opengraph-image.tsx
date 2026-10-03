@@ -8,8 +8,8 @@ export const dynamic = "force-static";
 export default function Image() {
   return new ImageResponse(
     ogImageJsx(
-      "I build JobsiteHQ.",
-      "The punch list and invoicing app for contractors."
+      "Software that holds up.",
+      "Software developer in Wisconsin. Building JobsiteHQ."
     ),
     { ...size }
   );

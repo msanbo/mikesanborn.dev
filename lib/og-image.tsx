@@ -36,7 +36,7 @@ export function ogImageJsx(tagline: string, detail: string) {
           color: "#c2410c",
         }}
       >
-        jobsitehq.app
+        mikesanborn.dev
       </div>
     </div>
   );
