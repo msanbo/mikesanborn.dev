@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const ARTICLE_PATH =
@@ -34,21 +35,34 @@ export default function Home() {
       <main>
         {/* HERO */}
         <section className="section">
-          <div className="container container--wide">
-            <p className="eyebrow mono">Mike Sanborn · Wisconsin</p>
-            <h1>I build software that holds up on a bad day.</h1>
-            <p className="lede">
-              I&apos;m a software developer. Right now I&apos;m building
-              JobsiteHQ, a punch list and invoicing app for contractors. If
-              you use it, I&apos;m the person who wrote it and the person who
-              answers your email.
-            </p>
-            <p>
-              <a className="button" href="mailto:mike@mikesanborn.dev">
-                Email me
-              </a>
-            </p>
-            <p className="mono muted">I reply within 24 hours.</p>
+          <div className="container container--wide hero-grid">
+            <div>
+              <p className="eyebrow mono">Mike Sanborn · Wisconsin</p>
+              <h1>I build software that holds up on a bad day.</h1>
+              <p className="lede">
+                I&apos;m a software developer. Right now I&apos;m building
+                JobsiteHQ, a punch list and invoicing app for contractors. If
+                you use it, I&apos;m the person who wrote it and the person who
+                answers your email.
+              </p>
+              <p>
+                <a className="button" href="mailto:mike@mikesanborn.dev">
+                  Email me
+                </a>
+              </p>
+              <p className="mono muted">I reply within 24 hours.</p>
+            </div>
+            <figure className="hero-photo">
+              <Image
+                src="/mike-fishing.webp"
+                alt="Mike kneeling in a backyard with his young son, holding up a stringer of trout"
+                width={720}
+                height={960}
+                sizes="(min-width: 760px) 300px, 100vw"
+                priority
+              />
+              <figcaption>Off the clock in Wisconsin.</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -61,14 +75,14 @@ export default function Home() {
               <li>
                 <strong>I build for the worst conditions, not the demo.</strong>{" "}
                 JobsiteHQ works in basements with no signal and saves a
-                recording every second, because a dropped connection or a
-                dead battery on site shouldn&apos;t cost anyone their work.
+                recording every second, because a dropped connection or a dead
+                battery on site shouldn&apos;t cost anyone their work.
               </li>
               <li>
-                <strong>I measure instead of guessing.</strong> When I report
-                a number, it&apos;s the median of repeated runs, not the best
-                one. My last store went from 82 to 95 on Google&apos;s mobile
-                speed test, measured across five runs.
+                <strong>I measure instead of guessing.</strong> When I report a
+                number, it&apos;s the median of repeated runs, not the best one.
+                My last store went from 82 to 95 on Google&apos;s mobile speed
+                test, measured across five runs.
               </li>
               <li>
                 <strong>I check the work, including the AI&apos;s.</strong> I
@@ -85,8 +99,8 @@ export default function Home() {
                 through me. Data is backed up every night.
               </li>
               <li>
-                <strong>You can reach me.</strong> No call center and no
-                ticket queue. Email me and you get the person who can fix it.
+                <strong>You can reach me.</strong> No call center and no ticket
+                queue. Email me and you get the person who can fix it.
               </li>
             </ul>
           </div>
@@ -100,10 +114,9 @@ export default function Home() {
             <h2>JobsiteHQ</h2>
             <p>
               A punch list and invoicing app for handymen and small-crew
-              contractors. Walk the job, talk through what needs doing, and
-              it writes the punch list, the estimate, and the invoice. Runs
-              on a phone, works offline, and the client pays by card from
-              the link.
+              contractors. Walk the job, talk through what needs doing, and it
+              writes the punch list, the estimate, and the invoice. Runs on a
+              phone, works offline, and the client pays by card from the link.
             </p>
             <p className="mono" style={{ fontSize: "0.875rem" }}>
               <a className="link" href={JOBSITEHQ_URL}>
@@ -113,10 +126,10 @@ export default function Home() {
 
             <h2 style={{ marginTop: "2.5rem" }}>Amber Hour Coffee Co.</h2>
             <p>
-              A production online store for a specialty coffee roaster,
-              selling into the US and the EU in two currencies across six
-              country storefronts. 95 on Google&apos;s mobile speed test
-              (median of five runs) and 100 for accessibility.
+              A production online store for a specialty coffee roaster, selling
+              into the US and the EU in two currencies across six country
+              storefronts. 95 on Google&apos;s mobile speed test (median of five
+              runs) and 100 for accessibility.
             </p>
             <p className="mono" style={{ fontSize: "0.875rem" }}>
               <a className="link" href="https://www.amberhour.coffee">
@@ -139,11 +152,11 @@ export default function Home() {
             <p className="eyebrow mono">Writing</p>
             <h2>What an AI agent gets wrong building a Medusa storefront</h2>
             <p>
-              I built a production store with an AI agent writing the code
-              and me directing and reviewing it. It made the same nine kinds
-              of mistake every time, and handed me a 95 speed score on an
-              easy page while the page customers actually use sat at 82.
-              This is what I found and how I check for it now.
+              I built a production store with an AI agent writing the code and
+              me directing and reviewing it. It made the same nine kinds of
+              mistake every time, and handed me a 95 speed score on an easy page
+              while the page customers actually use sat at 82. This is what I
+              found and how I check for it now.
             </p>
             <Link className="link" href={ARTICLE_PATH}>
               Read it →
